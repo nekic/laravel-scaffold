@@ -6,11 +6,19 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^11.0",
+        "laravel/jetstream": "^5.0",
         "laravel/nova": "^4.33",
-        "laravel/tinker": "^2.9"
+        "laravel/pulse": "^1.0@beta",
+        "laravel/reverb": "@beta",
+        "laravel/sanctum": "^4.0",
+        "laravel/telescope": "^5.0",
+        "laravel/tinker": "^2.9",
+        "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
+        "darkaonline/l5-swagger": "^8.6",
         "fakerphp/faker": "^1.23",
         "laravel/breeze": "^2.0",
         "laravel/pint": "^1.13",
@@ -63,12 +71,20 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": {
-        "nova": {
+    "repositories": [
+         {
+            "name": "nova",
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-packages/*",
+            "options": {
+                "symlink": false
+            }
         }
-    }
+    ]
 }
