@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd6d8c1bd1d2b0b4efa7f380a65e2e0e",
+    "content-hash": "06b1196fbefffe04228c8020f21d27cf",
     "packages": [
         {
             "name": "brick/math",
@@ -6451,22 +6451,35 @@
         },
         {
             "name": "infyomlabs/swagger-generator",
-            "version": "v2.0.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfyOmLabs/swagger-generator.git",
-                "reference": "23be81eae88edb120cb6b57a06a47af53fb62ab2"
+                "reference": "282dea4b8d8a369a172931c0ab8e6c6296fd600c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/InfyOmLabs/swagger-generator/zipball/23be81eae88edb120cb6b57a06a47af53fb62ab2",
-                "reference": "23be81eae88edb120cb6b57a06a47af53fb62ab2",
+                "url": "https://api.github.com/repos/InfyOmLabs/swagger-generator/zipball/282dea4b8d8a369a172931c0ab8e6c6296fd600c",
+                "reference": "282dea4b8d8a369a172931c0ab8e6c6296fd600c",
                 "shasum": ""
             },
             "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
                 "php": ">=5.5.9"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\InfyOm\\SwaggerGenerator\\SwaggerGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "InfyOm\\SwaggerGenerator\\": "src/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -6486,7 +6499,7 @@
             ],
             "support": {
                 "issues": "https://github.com/InfyOmLabs/swagger-generator/issues",
-                "source": "https://github.com/InfyOmLabs/swagger-generator/tree/v2.0.0"
+                "source": "https://github.com/InfyOmLabs/swagger-generator/tree/v3.2.0"
             },
             "funding": [
                 {
@@ -6494,7 +6507,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2022-06-23T08:05:28+00:00"
+            "time": "2023-04-04T11:04:49+00:00"
         },
         {
             "name": "konekt/html",

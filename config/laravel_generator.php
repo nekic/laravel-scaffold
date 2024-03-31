@@ -136,7 +136,7 @@ return [
 
         'localized' => true,
 
-        'repository_pattern' => true,
+        'repository_pattern' => false,
 
         'resources' => true,
 
