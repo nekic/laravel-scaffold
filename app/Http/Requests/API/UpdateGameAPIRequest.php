@@ -3,7 +3,7 @@
 namespace App\Http\Requests\API;
 
 use App\Models\Game;
-use InfyOm\Generator\Request\APIRequest;
+use App\Http\Requests\APIRequest;
 
 class UpdateGameAPIRequest extends APIRequest
 {

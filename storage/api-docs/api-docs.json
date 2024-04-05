@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "InfyOm Laravel Generator APIs",
+        "title": "APIs",
         "version": "1.0.0"
     },
     "servers": [
@@ -13,7 +13,7 @@
         "/games": {
             "get": {
                 "tags": [
-                    "Game"
+                    "Game 游戏管理"
                 ],
                 "summary": "getGameList",
                 "description": "Get all Games",
@@ -27,6 +27,9 @@
                                     "properties": {
                                         "success": {
                                             "type": "boolean"
+                                        },
+                                        "code": {
+                                            "type": "number"
                                         },
                                         "data": {
                                             "type": "array",
@@ -47,7 +50,7 @@
             },
             "post": {
                 "tags": [
-                    "Game"
+                    "Game 游戏管理"
                 ],
                 "summary": "createGame",
                 "description": "Create Game",
@@ -72,6 +75,9 @@
                                         "success": {
                                             "type": "boolean"
                                         },
+                                        "code": {
+                                            "type": "number"
+                                        },
                                         "data": {
                                             "$ref": "#/components/schemas/Game"
                                         },
@@ -90,7 +96,7 @@
         "/games/{id}": {
             "get": {
                 "tags": [
-                    "Game"
+                    "Game 游戏管理"
                 ],
                 "summary": "getGameItem",
                 "description": "Get Game",
@@ -116,6 +122,9 @@
                                         "success": {
                                             "type": "boolean"
                                         },
+                                        "code": {
+                                            "type": "number"
+                                        },
                                         "data": {
                                             "$ref": "#/components/schemas/Game"
                                         },
@@ -132,7 +141,7 @@
             },
             "put": {
                 "tags": [
-                    "Game"
+                    "Game 游戏管理"
                 ],
                 "summary": "updateGame",
                 "description": "Update Game",
@@ -168,6 +177,9 @@
                                         "success": {
                                             "type": "boolean"
                                         },
+                                        "code": {
+                                            "type": "number"
+                                        },
                                         "data": {
                                             "$ref": "#/components/schemas/Game"
                                         },
@@ -184,7 +196,7 @@
             },
             "delete": {
                 "tags": [
-                    "Game"
+                    "Game 游戏管理"
                 ],
                 "summary": "deleteGame",
                 "description": "Delete Game",
@@ -209,6 +221,9 @@
                                     "properties": {
                                         "success": {
                                             "type": "boolean"
+                                        },
+                                        "code": {
+                                            "type": "number"
                                         },
                                         "data": {
                                             "type": "string"
@@ -236,25 +251,25 @@
                 ],
                 "properties": {
                     "name": {
-                        "description": "",
+                        "description": "名称",
                         "type": "string",
                         "readOnly": false,
                         "nullable": false
                     },
                     "slug": {
-                        "description": "",
+                        "description": "唯一标识",
                         "type": "string",
                         "readOnly": false,
                         "nullable": false
                     },
                     "description": {
-                        "description": "",
+                        "description": "描述",
                         "type": "string",
                         "readOnly": false,
                         "nullable": true
                     },
                     "status": {
-                        "description": "",
+                        "description": "状态",
                         "type": "string",
                         "readOnly": false,
                         "nullable": false

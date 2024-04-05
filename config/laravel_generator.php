@@ -13,27 +13,27 @@ return [
 
         'migration'         => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/databases/migrations/' : database_path('migrations/'),
 
-        'model'             => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Models/' : app_path('Models/'),
+        'model'             => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Models/' : app_path('Models/'),
 
-        'datatables'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/DataTables/' : app_path('DataTables/'),
+        'datatables'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/DataTables/' : app_path('DataTables/'),
 
-        'livewire_tables'   => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Http/Livewire/' : app_path('Http/Livewire/'),
+        'livewire_tables'   => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Http/Livewire/' : app_path('Http/Livewire/'),
 
-        'repository'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Repositories/' : app_path('Repositories/'),
+        'repository'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Repositories/' : app_path('Repositories/'),
 
         'routes'            => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/routes/web.php' : base_path('routes/web.php'),
 
         'api_routes'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/routes/api.php' : base_path('routes/api.php'),
 
-        'request'           => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Http/Requests/' : app_path('Http/Requests/'),
+        'request'           => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Http/Requests/' : app_path('Http/Requests/'),
 
-        'api_request'       => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Http/Requests/API/' : app_path('Http/Requests/API/'),
+        'api_request'       => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Http/Requests/API/' : app_path('Http/Requests/API/'),
 
-        'controller'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Http/Controllers/' : app_path('Http/Controllers/'),
+        'controller'        => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Http/Controllers/' : app_path('Http/Controllers/'),
 
-        'api_controller'    => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Http/Controllers/API/' : app_path('Http/Controllers/API/'),
+        'api_controller'    => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Http/Controllers/API/' : app_path('Http/Controllers/API/'),
 
-        'api_resource'      => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Http/Resources/' : app_path('Http/Resources/'),
+        'api_resource'      => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Http/Resources/' : app_path('Http/Resources/'),
 
         'schema_files'      => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/resources/model_schemas/' : resource_path('model_schemas/'),
 
@@ -43,7 +43,7 @@ return [
 
         'factory'           => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/database/factories/' : database_path('factories/'),
 
-        'view_provider'     => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/app/Providers/ViewServiceProvider.php' : app_path('Providers/ViewServiceProvider.php'),
+        'view_provider'     => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . (env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? '/app' : '/src') . '/Providers/ViewServiceProvider.php' : app_path('Providers/ViewServiceProvider.php'),
 
         'tests'             => env('LARAVEL_GENERATOR_BASE_PATH', null) ? env('LARAVEL_GENERATOR_BASE_PATH') . '/tests/' : base_path('tests/'),
 
@@ -63,35 +63,36 @@ return [
     |
     */
 
+
     'namespace' => [
 
-        'model'             => 'App\Models',
+        'model'             => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Models' :  env('LARAVEL_GENERATOR_NAMESPACE') . '\Models',
 
-        'datatables'        => 'App\DataTables',
+        'datatables'        => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\DataTables' : env('LARAVEL_GENERATOR_NAMESPACE') . '\DataTables',
 
-        'livewire_tables'   => 'App\Http\Livewire',
+        'livewire_tables'   => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Http\Livewire' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Http\Livewire',
 
-        'repository'        => 'App\Repositories',
+        'repository'        => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Repositories' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Repositories',
 
-        'controller'        => 'App\Http\Controllers',
+        'controller'        => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Http\Controllers' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Http\Controllers',
 
-        'api_controller'    => 'App\Http\Controllers\API',
+        'api_controller'    => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Http\Controllers\API' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Http\Controllers\API',
 
-        'api_resource'      => 'App\Http\Resources',
+        'api_resource'      => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Http\Resources' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Http\Resources',
 
-        'request'           => 'App\Http\Requests',
+        'request'           => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Http\Requests' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Http\Requests',
 
-        'api_request'       => 'App\Http\Requests\API',
+        'api_request'       => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'App\Http\Requests\API' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Http\Requests\API',
 
-        'seeder'            => 'Database\Seeders',
+        'seeder'            => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'Database\Seeders' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Database\Factories',
 
-        'factory'           => 'Database\Factories',
+        'factory'           => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'Database\Factories' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Database\Factories',
 
-        'tests'             => 'Tests',
+        'tests'             => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'Tests' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Tests',
 
-        'repository_test'   => 'Tests\Repositories',
+        'repository_test'   => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'Tests\Repositories' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Tests\Repositories',
 
-        'api_test'          => 'Tests\APIs',
+        'api_test'          => env('LARAVEL_GENERATOR_MODE', 'app') === 'app' ? 'Tests\APIs' : env('LARAVEL_GENERATOR_NAMESPACE') . '\Tests\APIs',
     ],
 
     /*
@@ -142,7 +143,7 @@ return [
 
         'factory' => true,
 
-        'seeder' => false,
+        'seeder' => true,
 
         'swagger' => true, // generate swagger for your APIs
 

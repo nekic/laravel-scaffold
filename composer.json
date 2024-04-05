@@ -16,7 +16,7 @@
         "doctrine/dbal": "^3.8",
         "fakerphp/faker": "^1.9.1",
         "infyomlabs/laravel-generator": "dev-develop",
-        "infyomlabs/swagger-generator": "^3.2",
+        "infyomlabs/swagger-generator": "dev-master",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.29",
         "mockery/mockery": "^1.4.4",
